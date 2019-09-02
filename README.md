@@ -10,7 +10,7 @@ to be true about the representations of time in some systems of interest.
 | a time (hours minutes seconds) | `TIME` | none (see note) | `TIME` | `TIME` | ? | `Time` | `LocalTime` |
 | a time *with* fractional seconds | `TIME` (if supported) | none (see note) | `TIME` | `TIME` | ? | ? | `LocalTime` |
 | a date and time (civil, no time zone) | `TIMESTAMP` \[`WITHOUT TIME ZONE`] | `DATE` | `DATETIME` | `DATETIME` | ? | `Timestamp` | `LocalDateTime` |
-| a date and time *with* fractional seconds (civil, no time zone) | `TIMESTAMP` \[`WITHOUT TIME ZONE`] | `TIMESTAMP` | `DATETIME` | `DATETIME` | ? | `Timestamp` (see note) | none? |
+| a date and time *with* fractional seconds (civil, no time zone) | `TIMESTAMP` \[`WITHOUT TIME ZONE`] | `TIMESTAMP` | `DATETIME` | `DATETIME` | ? | `Timestamp` (see note) | `LocalDateTime` |
 
 "Civil time" (also called "wall clock time") refers to the local time without specifying any particular time zone.
 
