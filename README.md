@@ -5,12 +5,12 @@ to be true about the representations of time in some systems of interest.
 
 | Semantics | SQL standard | Oracle DB | MS SQL Server | Google BigQuery | `java.util` | `java.sql` | `java.time` |
 | --------- | ------------ | --------- | ------------- | --------------- | ----------- | ---------- | ----------- |
-| a point in time | `TIMESTAMP WITH TIME ZONE` | `TIMESTAMP WITH TIME ZONE`/`TIMESTAMP WITH LOCAL TIME ZONE` (see note) | `DATETIMEOFFSET` | `TIMESTAMP` | `Date` | `Timestamp` (see note) | `Instant` / `OffsetDateTime` / `ZonedDateTime` |
+| a point in time | `TIMESTAMP WITH TIME ZONE` | `TIMESTAMP WITH TIME ZONE`/`TIMESTAMP WITH LOCAL TIME ZONE` (see note) | `DATETIMEOFFSET` | `TIMESTAMP` | `Date` | ? | `Instant` / `OffsetDateTime` / `ZonedDateTime` |
 | a date (year month day) | `DATE` | none (see note) | `DATE` | `DATE` | ? | `Date` | `LocalDate` |
 | a time (hours minutes seconds) | `TIME` | none (see note) | `TIME` | `TIME` | ? | `Time` | `LocalTime` |
 | a time *with* fractional seconds | `TIME` (if supported) | none (see note) | `TIME` | `TIME` | ? | ? | `LocalTime` |
 | a date and time (civil, no time zone) | `TIMESTAMP` \[`WITHOUT TIME ZONE`] | `DATE` | `DATETIME` | `DATETIME` | ? | `Timestamp` | `LocalDateTime` |
-| a date and time *with* fractional seconds (civil, no time zone) | `TIMESTAMP` \[`WITHOUT TIME ZONE`] | `TIMESTAMP` | `DATETIME` | `DATETIME` | ? | `Timestamp` (see note) | `LocalDateTime` |
+| a date and time *with* fractional seconds (civil, no time zone) | `TIMESTAMP` \[`WITHOUT TIME ZONE`] | `TIMESTAMP` | `DATETIME` | `DATETIME` | ? | `Timestamp` | `LocalDateTime` |
 
 "Civil time" (also called "wall-clock time") refers to the local time without specifying any particular time zone.
 
@@ -26,9 +26,9 @@ Java offers `java.time.OffsetTime`.
   affects display and not calculation.  The database time zone (`DBTIMEZONE`) is usually UTC.
 
 ## Notes for Java
-- `java.sql.Timestamp` is dual-purpose: it is based to UTC but can also be viewed as a local date-time
-- In general, adopting a convention that a fixed time zone is used for a time type allows treating it
-  as a zone-less civil time, but those conventions may not be visible or preserved at run time.
+- `java.sql.Timestamp` is a local date-time, but conversion to `java.time.Instant` treats it as UTC, as does `getTime`.
+- A reference time zone (typically UTC) allows treating absolute times as civil times and vice versa, 
+  but the convention is not enforced by the type system and is likely to lead to confusion.
 - My opinion: `java.util` classes should only be used for interacting with legacy APIs,
   and avoided in any other context.
 
