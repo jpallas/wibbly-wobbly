@@ -42,4 +42,4 @@ Java offers `java.time.OffsetTime`.
 - [Postgres](https://www.postgresql.org/docs/current/datatype-datetime.html)
 - [`java.time`](https://www.oracle.com/technetwork/articles/java/jf14-date-time-2125367.html)
 
-Source: https://github.com/jpallas/wibbly-wobbly
+[Source](https://github.com/jpallas/wibbly-wobbly)
