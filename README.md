@@ -5,14 +5,14 @@ to be true about the representations of time in some systems of interest.
 
 | Semantics | SQL standard | Oracle DB | MS SQL Server | Google BigQuery | `java.util` | `java.sql` | `java.time` |
 | --------- | ------------ | --------- | ------------- | --------------- | ----------- | ---------- | ----------- |
-| a point in time | `TIMESTAMP WITH TIME ZONE` | `TIMESTAMP WITH TIME ZONE`/`TIMESTAMP WITH LOCAL TIME ZONE` (see note) | `DATETIMEOFFSET` | `TIMESTAMP` | `Date` | `Timestamp` (see note) | `Instant`/`OffsetDateTime`/`ZonedDateTime` |
+| a point in time | `TIMESTAMP WITH TIME ZONE` | `TIMESTAMP WITH TIME ZONE`/`TIMESTAMP WITH LOCAL TIME ZONE` (see note) | `DATETIMEOFFSET` | `TIMESTAMP` | `Date` | `Timestamp` (see note) | `Instant` / `OffsetDateTime` / `ZonedDateTime` |
 | a date (year month day) | `DATE` | none (see note) | `DATE` | `DATE` | ? | `Date` | `LocalDate` |
 | a time (hours minutes seconds) | `TIME` | none (see note) | `TIME` | `TIME` | ? | `Time` | `LocalTime` |
 | a time *with* fractional seconds | `TIME` (if supported) | none (see note) | `TIME` | `TIME` | ? | ? | `LocalTime` |
 | a date and time (civil, no time zone) | `TIMESTAMP` \[`WITHOUT TIME ZONE`] | `DATE` | `DATETIME` | `DATETIME` | ? | `Timestamp` | `LocalDateTime` |
 | a date and time *with* fractional seconds (civil, no time zone) | `TIMESTAMP` \[`WITHOUT TIME ZONE`] | `TIMESTAMP` | `DATETIME` | `DATETIME` | ? | `Timestamp` (see note) | `LocalDateTime` |
 
-"Civil time" (also called "wall clock time") refers to the local time without specifying any particular time zone.
+"Civil time" (also called "wall-clock time") refers to the local time without specifying any particular time zone.
 
 Standard SQL has a `TIME WITH TIME ZONE` type for a time with offset but no date.  It doesn't seem particularly useful.
 Java offers `java.time.OffsetTime`.
