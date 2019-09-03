@@ -24,6 +24,9 @@ Java offers `java.time.OffsetTime`.
 - Oracle's `TIMESTAMP WITH LOCAL TIME ZONE` is a variant of `TIMESTAMP WITH TIME ZONE` that "normalizes"
   stored data to the database time zone and uses the session time zone on retrieval.  Presumably this only
   affects display and not calculation.  The database time zone (`DBTIMEZONE`) is usually UTC.
+  
+## Notes for BigQuery
+- Avro has date, time, and timestamp [logical types](https://avro.apache.org/docs/current/spec.html#Logical+Types).  There is no Avro type that BigQuery will import as `DATETIME`.
 
 ## Notes for Java
 - `java.sql.Timestamp` is a local date-time, but conversion to `java.time.Instant` treats it as UTC, as does `getTime`.
