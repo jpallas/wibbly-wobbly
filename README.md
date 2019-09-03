@@ -41,3 +41,5 @@ Java offers `java.time.OffsetTime`.
 - [Oracle DB 12.2](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/sqlrf/Data-Types.html#GUID-7B72E154-677A-4342-A1EA-C74C1EA928E6)
 - [Postgres](https://www.postgresql.org/docs/current/datatype-datetime.html)
 - [`java.time`](https://www.oracle.com/technetwork/articles/java/jf14-date-time-2125367.html)
+
+Source: https://github.com/jpallas/wibbly-wobbly
