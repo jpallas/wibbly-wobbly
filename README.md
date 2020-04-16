@@ -34,6 +34,7 @@ Java offers `java.time.OffsetTime`.
   but the convention is not enforced by the type system and is likely to lead to confusion.
 - My opinion: `java.util` classes should only be used for interacting with legacy APIs,
   and avoided in any other context.
+- [This StackOverflow answer](https://stackoverflow.com/a/56508200) has some useful tips on parsing date/time strings with Java.
 
 ## References
 - [BigQuery](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types)
